@@ -62,10 +62,10 @@ public class Clock : MonoBehaviour
 
     void ApplyRotations(float hourAngle, float minuteAngle, float secondAngle)
     {
-        // Y-axis rotation makes clockwise motion for this specific clock's orientation
-        // We use a positive angle because of the way Unity's Y-axis rotation works for this object's transform
-        if (secondHand) secondHand.localRotation = Quaternion.Euler(0f, secondAngle, 0f);
-        if (minuteHand) minuteHand.localRotation = Quaternion.Euler(0f, minuteAngle, 0f);
-        if (hourHand)   hourHand.localRotation   = Quaternion.Euler(0f, hourAngle, 0f);
+        // Rotate around the Z-axis for a wall clock.
+        // Use negative angles for clockwise motion.
+        if (secondHand) secondHand.localRotation = Quaternion.Euler(0f, 0f, -secondAngle);
+        if (minuteHand) minuteHand.localRotation = Quaternion.Euler(0f, 0f, -minuteAngle);
+        if (hourHand)   hourHand.localRotation   = Quaternion.Euler(0f, 0f, -hourAngle);
     }
 }
